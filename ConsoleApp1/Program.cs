@@ -223,9 +223,101 @@
             Console.WriteLine($"kerülete: {szam1*Math.PI}");
             Console.WriteLine($"területe: {((szam1/2)*(szam1/2)) * Math.PI}");
         }
-        static void Main(string[] args)
+
+        static void F14()
         {
-            
+            double r = TortNum();
+            double alfa = TortNum();
+
+            Console.WriteLine($"körcik ív hossza: {2 * r * Math.PI * (alfa / 360)}");
+            Console.WriteLine($"körcik területe: {(r*r*alfa)/2}");
+        }
+
+        static void F15()
+        {
+            int szam = Num();
+
+            for (int i = 0; i <= szam; i++)
+            {
+                Console.Write($"{i} ");
+            }
+        }
+
+        static void F16()
+        {
+            int szam = Num();
+
+            for (int i = 0; i <= szam; i++)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+        static void F17()
+        {
+            int szam = Num();
+            for (int i = 1; i <= szam; i++)
+            {
+                if (szam%i==0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+        static void F18()
+        {
+            int szam = Num();
+            int oszt = 0;
+            for (int i = 1; i <= szam; i++)
+            {
+                if (szam % i == 0)
+                {
+                    oszt = oszt + i;
+                }
+            }
+            Console.WriteLine(oszt);
+        }
+
+        static void F19()
+        {
+            int szam = Num();
+            int oszt = 0;
+            for (int i = 1; i <= szam; i++)
+            {
+                if (szam % i == 0)
+                {
+                    oszt = oszt + i;
+                }
+            }
+            if (oszt == szam * 2)
+            {
+                Console.WriteLine("tökéletes szám");
+            }
+            else
+            {
+                Console.WriteLine("nem tökéletes szám");
+            }
+        }
+
+        static void F20()
+        {
+            int halap = Num();
+            int kitevo = Num();
+            int szam = 1;
+
+            for (int i = 0; i < kitevo; i++)
+            {
+                szam = szam * halap;
+            }
+            Console.WriteLine(szam);
+
+            Console.WriteLine(Math.Pow(halap,kitevo));
+        }
+
+            static void Main(string[] args)
+        {
+           
         }
     }
 }
