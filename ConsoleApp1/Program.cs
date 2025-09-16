@@ -11,13 +11,13 @@
             {
                 try
                 {
-                    Console.Write("adj egy számot: ");
-                    numb = double.Parse(Console.ReadLine()!);
+                    Console.Write("Írj be egy számot!: ");
+                    numb = double.Parse(Console.ReadLine()!.Replace('.', ','));
                     szam = true;
                 }
                 catch (FormatException)
                 {
-                    Console.Write("ez nem szám! ");
+                    Console.WriteLine("Ez nem szám!");
                 }
                 catch (OverflowException)
                 {
@@ -29,19 +29,17 @@
             return numb;
         }
 
-
-
         static int Num()
         {
             string be = "";
             int numb = 0;
             bool szam = false;
-            
+
             do
             {
                 try
                 {
-                    Console.Write("adj egy egész számot: ");
+                    Console.Write("Írj be egy egész számot!: ");
                     be = Console.ReadLine()!.Replace('.', ',');
                     numb = int.Parse(be);
                     szam = true;
@@ -50,12 +48,12 @@
                 {
                     if (double.TryParse(be, out var ex))
                     {
-                        Console.WriteLine("egész számot adj meg");
-                        
+                        Console.WriteLine("Egész számot adj meg!");
+
                     }
                     else
                     {
-                        Console.WriteLine("számot adj meg");
+                        Console.WriteLine("Számot adj meg!");
                     }
                 }
                 catch (OverflowException)
@@ -75,41 +73,41 @@
 
         static void F2()
         {
-            Console.WriteLine("hogy hívnak?");
+            Console.WriteLine("Hogy hívnak?");
             string name = Console.ReadLine()!;
-            Console.WriteLine($"szia {name}");
+            Console.WriteLine($"Szia {name}!");
         }
 
         static void F3()
         {
-            Console.WriteLine(TortNum()*2);
+            Console.WriteLine($"A szám kétszerese: {TortNum() * 2}");
         }
 
         static void F4()
         {
-            double szam1 = TortNum();
-            double szam2 = TortNum();
-            Console.WriteLine(szam1 + szam2);
-            Console.WriteLine(szam1 - szam2);
-            Console.WriteLine(szam1 * szam2);
-            if (szam1!=0 && szam2 !=0)
+            double num1 = TortNum();
+            double num2 = TortNum();
+            Console.WriteLine(num1 + num2);
+            Console.WriteLine(num1 - num2);
+            Console.WriteLine(num1 * num2);
+            if (num1 != 0 && num2 != 0)
             {
-                Console.WriteLine(szam1 / szam2);
+                Console.WriteLine(num1 / num2);
             }
 
         }
 
         static void F5()
         {
-            int szam1 = Num();
-            int szam2 = Num();
-            if (szam1 > szam2)
+            int num1 = Num();
+            int num2 = Num();
+            if (num1 > num2)
             {
-                Console.WriteLine(szam1);
+                Console.WriteLine(num1);
             }
             else
             {
-                Console.WriteLine(szam2);
+                Console.WriteLine(num2);
             }
         }
 
@@ -119,51 +117,51 @@
             list.Add(Num());
             list.Add(Num());
             list.Add(Num());
-            int legkis = list[0];
+            int smalst = list[0];
             for (int i = 0; i < list.Count; i++)
             {
 
-                if (list[i]<legkis)
+                if (list[i] < smalst)
                 {
-                    legkis = list[i];
+                    smalst = list[i];
                 }
             }
 
-            Console.WriteLine(legkis);
+            Console.WriteLine($"A legkisebb szám: {smalst}");
         }
 
         static void F7()
         {
-            double szam1 = TortNum();
-            double szam2 = TortNum();
-            double szam3 = TortNum();
+            double num1 = TortNum();
+            double num2 = TortNum();
+            double num3 = TortNum();
 
-            if (szam1 + szam2 < szam3 || szam2 + szam3 < szam1 || szam1 + szam3 < szam3)
+            if (num1 + num2 < num3 || num2 + num3 < num1 || num1 + num3 < num3)
             {
-                Console.WriteLine("nem szerkesztheő");
+                Console.WriteLine("Nem szerkeszthető!");
             }
             else
             {
-                Console.WriteLine("szerkeszthető");
+                Console.WriteLine("Szerkeszthető!");
             }
 
         }
 
         static void F8()
         {
-            int szam1;
-            int szam2;
+            int num1;
+            int num2;
             do
             {
-                Console.WriteLine("kettő egész pozitív számot kérek");
-                szam1 = Num();
-                szam2 = Num();
+                Console.WriteLine("Kettő egész pozitív számot kérek");
+                num1 = Num();
+                num2 = Num();
             }
-            while (szam1 !<= 0 || szam2 !<= 0);
+            while (num1! <= 0 || num2! <= 0);
 
 
-            Console.WriteLine($"számtani közép {(szam1+szam2)/2}");
-            Console.WriteLine($"mértani közép{Math.Sqrt(szam1*szam2)}");
+            Console.WriteLine($"Számtani közép: {(num1 + num2) / 2}");
+            Console.WriteLine($"Mértani közép: {Math.Sqrt(num1 * num2)}");
         }
 
         static void F9()
@@ -172,13 +170,13 @@
             int b = Num();
             int c = Num();
 
-            if ((b*b-4*a*c)>=0)
+            if ((b * b - 4 * a * c) >= 0)
             {
-                Console.WriteLine("van megoldása");
+                Console.WriteLine("Van megoldása!");
             }
             else
             {
-                Console.WriteLine("nincs megoldása");
+                Console.WriteLine("Nincs megoldása!");
             }
         }
 
@@ -190,38 +188,38 @@
 
             if ((b * b - 4 * a * c) >= 0)
             {
-                Console.WriteLine($"a megoldás: {(-b + Math.Sqrt(b * b - 4 * a * c))/(2*a)} és {(-b - Math.Sqrt(b * b - 4 * a * c))/(2*a)}");
+                Console.WriteLine($"A megoldás: {(-b + Math.Sqrt(b * b - 4 * a * c)) / (2 * a)} és {(-b - Math.Sqrt(b * b - 4 * a * c)) / (2 * a)}");
             }
             else
             {
-                Console.WriteLine("nincs megoldása");
+                Console.WriteLine("Nincs megoldása!");
             }
         }
 
         static void F11()
         {
-            double szam1 = TortNum();
-            double szam2 = TortNum();
+            double num1 = TortNum();
+            double num2 = TortNum();
 
-            Console.WriteLine($"átfogó: {Math.Round(Math.Sqrt(szam1*szam1+szam2*szam2),2)}");
+            Console.WriteLine($"Átfogó: {Math.Round(Math.Sqrt(num1 * num1 + num2 * num2), 2)}");
         }
 
         static void F12()
         {
-            double szam1 = TortNum();
-            double szam2 = TortNum();
-            double szam3 = TortNum();
+            double num1 = TortNum();
+            double num2 = TortNum();
+            double num3 = TortNum();
 
-            Console.WriteLine($"térfogata: {szam1*szam2*szam3}");
-            Console.WriteLine($"felszíne: {(szam1*szam2+szam1*szam3+szam2*szam3)*2}");
+            Console.WriteLine($"Térfogata: {num1 * num2 * num3}");
+            Console.WriteLine($"Felszíne: {(num1 * num2 + num1 * num3 + num2 * num3) * 2}");
         }
 
         static void F13()
         {
-            double szam1 = TortNum();
+            double num1 = TortNum();
 
-            Console.WriteLine($"kerülete: {szam1*Math.PI}");
-            Console.WriteLine($"területe: {((szam1/2)*(szam1/2)) * Math.PI}");
+            Console.WriteLine($"Kerülete: {num1 * Math.PI}");
+            Console.WriteLine($"Területe: {((num1 / 2) * (num1 / 2)) * Math.PI}");
         }
 
         static void F14()
@@ -229,8 +227,8 @@
             double r = TortNum();
             double alfa = TortNum();
 
-            Console.WriteLine($"körcik ív hossza: {2 * r * Math.PI * (alfa / 360)}");
-            Console.WriteLine($"körcik területe: {(r*r*alfa)/2}");
+            Console.WriteLine($"Körcik ív hossza: {2 * r * Math.PI * (alfa / 360)}");
+            Console.WriteLine($"Körcik területe: {(r * r * alfa) / 2}");
         }
 
         static void F15()
@@ -258,7 +256,7 @@
             int szam = Num();
             for (int i = 1; i <= szam; i++)
             {
-                if (szam%i==0)
+                if (szam % i == 0)
                 {
                     Console.WriteLine(i);
                 }
@@ -304,20 +302,85 @@
         {
             int halap = Num();
             int kitevo = Num();
-            int szam = 1;
+            // int szam = 1;
 
-            for (int i = 0; i < kitevo; i++)
-            {
-                szam = szam * halap;
-            }
-            Console.WriteLine(szam);
+            /* for (int i = 0; i < kitevo; i++)
+             {
+                 szam = szam * halap;
+             }
+             Console.WriteLine(szam);*/
 
-            Console.WriteLine(Math.Pow(halap,kitevo));
+            Console.WriteLine(Math.Pow(halap, kitevo));
         }
 
+        static void F21()
+        {
+            int num;
+            do
+            {
+                num = Num();
+            }
+            while (num < 0);
+        }
+
+        static void F22()
+        {
+            int num;
+            int osszeg = 0;
+            do
+            {
+                num = Num();
+                osszeg = osszeg + num;
+            }
+            while (num < 10);
+            Console.WriteLine(osszeg);
+        }
+
+        static void F23()
+        {
+            int num = Num();
+            do
+            {
+                Console.Write("2*");
+                num = num / 2;
+            }
+            while (num%2 == 0);
+            Console.Write(num);
+        }
+
+        static void F24()
+        {
+            string word = "";
+
+            do
+            {
+                Console.WriteLine("Csak az alma szót fogadom el!");
+                word = Console.ReadLine()!;
+            }
+            while (word != "alma");
+
+            Console.WriteLine("Az alma gyümölcs!");
+        }
+
+        static void F25()
+        {
+            int num = Num();
+            int i = 0;
+            while (num >= 3)
+            {
+                num = num - 3;
+                i++;
+            }
+
+            Console.WriteLine($"{i*3+num} = {i}*3+{num}");
+        }
+
+        static void F26()
+        {
+
+        }
             static void Main(string[] args)
         {
-           
         }
     }
 }
