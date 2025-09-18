@@ -573,27 +573,101 @@ namespace ConsoleApp1
 
         static void F35()
         {
-            int sor = 0;
             int start = 97;
             do
             {
+                
                 for (int i = start; i < start + 4; i++)
                 {
 
-
-                    Console.Write($"{Convert.ToChar(i)}\t{i}\t");
-
+                    if (i < 122)
+                    {
+                        Console.Write($"{Convert.ToChar(i)} {i}\t");
+                    }
+                   
                 }
                 Console.WriteLine();
                 start = start + 4;
+
             } while (start < 122);
 
 
 
         }
 
+        static void F36()
+        {
+            int x = Num();
+            int y = Num();
+            bool sym = false;
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    if (i % 2 == 0 && j == 0)
+                    {
+                        sym = true;
+                    }
+                    else
+                    {
+                        if (j == 0)
+                        {
+                            sym = false;
+                        }
+                        
+                    }
+
+                    if (sym)
+                    {
+                        Console.Write("X");
+                        sym = false;
+                    }
+                    else
+                    {
+                        Console.Write("O");
+                        sym = true;
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void F37()
+        {
+            int a = Num();
+            int sor = 1;
+
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < sor; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+                sor = sor + 2;
+            }
+        }
+
+        static void F38()
+        {
+            int a = Num();
+            int sor = a*2+1;
+            int symnum = 1;
+
+            for (int i = 0; i < a; i++) 
+            {
+                for (int j = 0; j < sor; j++)
+                {
+                    
+                }
+                Console.WriteLine();
+                
+            }
+        }
+
             static void Main(string[] args)
         {
+           
         }
     }
 }
