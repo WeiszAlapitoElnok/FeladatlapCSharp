@@ -68,6 +68,17 @@ namespace ConsoleApp1
             return numb;
         }
 
+        static int[] Array()
+        {
+            int size = Num();
+            int[] num = new int[size];
+            for (int i = 0; i < num.Length; i++)
+            {
+                num[i] = Num();
+            }
+            return num;
+        }
+
         static void F1()
         {
             Console.WriteLine("Hello world!");
@@ -651,20 +662,217 @@ namespace ConsoleApp1
         static void F38()
         {
             int a = Num();
-            int sor = a*2+1;
-            int symnum = 1;
-
-            for (int i = 0; i < a; i++) 
+            for (int i = 1; i <= a; i++)
             {
-                for (int j = 0; j < sor; j++)
+                for (int j = 1; j <= a - i; j++)
                 {
-                    
+                    Console.Write(" ");
+                }
+                for (int j = 1; j <= 2 * i - 1; j++)
+                {
+                    Console.Write("*");
                 }
                 Console.WriteLine();
-                
             }
         }
 
+        static void F39()
+        {
+            int a = Num();
+            int b = Num();
+
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < b; j++)
+                {
+                    if (i == 0 || i == a-1)
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        if (j == 0 || j == b - 1)
+                        {
+                            Console.Write("*");
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                        }
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void F40()
+        {
+            int sum = 0;
+            for (int i = 1; i < 10000; i++)
+            {
+                for (int j = 1; j < i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        sum = sum + j;
+                    }
+                }
+                if (sum == i)
+                {
+                    Console.WriteLine(i);
+                }
+                sum = 0;
+            }
+        }
+
+        static void F41()
+        {
+            int start = 65;
+            for (int i = 0; i < 26; i++)
+            {
+                for (int j = start; j < 91; j++)
+                {
+                    Console.Write($"{Convert.ToChar(j)}");
+                }
+                for (int j = 65; j < start; j++)
+                {
+                    Console.Write($"{Convert.ToChar(j)}");
+                }
+                Console.WriteLine();
+                start++;
+            }
+        }
+
+        static void F42()
+        {
+            int[] nums = Array();
+            int sum = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] % 2 != 0)
+                {
+                    sum++;
+                }
+            }
+            Console.WriteLine(sum);
+        }
+
+        static void F43()
+        {
+            int[] nums = Array();
+            int sum = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] % 2 == 0)
+                {
+                    sum = sum + nums[i];
+                }
+            }
+            Console.WriteLine(sum);
+        }
+
+        static void F44()
+        {
+            int[] nums = Array();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] % 2 == 0)
+                {
+                    Console.WriteLine($"{nums[i]} a(z) {i}. helyen van");
+                }
+            }
+        }
+
+        static void F45()
+        {
+            int[] nums = Array();
+            int num = Num();
+            bool van = false;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == num)
+                {
+                    Console.WriteLine($"A {num} a(z) {i}. helyen van!");
+                    van = true;
+                    break;
+                }
+            }
+            if (van == false)
+            {
+                Console.WriteLine("A tömben nincs ilyen szám!");
+            }
+
+        }
+
+        static void F46()
+        {
+            int[] nums = Array();
+            int num = Num();
+            int sum = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == num)
+                {
+                    sum++;
+                }
+            }
+            
+            Console.WriteLine($"A {num} {sum}-szor szerepel a tömben!");
+            
+        }
+
+        static void F47()
+        {
+            int size = Num();
+            int num = 0;
+            string[] names = new string[size];
+            Console.WriteLine("Add meg a keresett tanuló keresztnevét nevét:");
+            string kname = Console.ReadLine()!;
+            for (int i = 0; i < names.Length; i++)
+            {
+                Console.WriteLine("Adj meg egy keresztnevet!");
+                names[i] = Console.ReadLine()!;
+            }
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                if (names[i] == kname)
+                {
+                    num++;
+                }
+            }
+            Console.WriteLine($"{num} {kname} keresztnevű tanuló jár az osztályba");
+
+        }
+
+        static void F48()
+        {
+            int[] nums = Array();
+            Console.WriteLine(nums.Max()-nums.Min());
+        }
+
+        static void F49()
+        {
+            int[] nums = Array();
+            int num = 0;
+            for (int i = nums.Length; i > 1; i--)
+            {
+                for (int j = 0; j < i-1; j++)
+                {
+                    if (nums[j] > nums[j+1])
+                    {
+                        num = nums[j];
+                        nums[j] = nums[j + 1];
+                        nums[j + 1] = num;
+                    }
+                }
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                Console.Write($"{nums[i]} ");
+            }
+        }
             static void Main(string[] args)
         {
            
